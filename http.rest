@@ -1,0 +1,17 @@
+# Display all employees
+# GET http://localhost:4000/api/employee
+
+## Create new Employee
+POST http://localhost:4000/api/employee/store
+Content-Type: application/json
+
+{
+	"name": "Guido Castrogiovanni",
+	"designation": "Programmer",
+	"email": "nicocastrogiovanni@hotmail.com",
+	"phone": "12345",
+	"age": 24
+}
+
+# 
+# 

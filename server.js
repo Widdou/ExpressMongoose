@@ -2,7 +2,10 @@ const express = require('express')
 const mongoose = require('mongoose')
 const morgan = require('morgan')
 
-// ================= DATA BASE ================
+
+const EmployeeRoute = require('./routes/employee')
+
+// ======================= DATA BASE ========================
 
 mongoose.connect('mongodb://127.0.0.1:27017/Test_DB', { useNewUrlParser: true, useUnifiedTopology: true })
 
@@ -16,7 +19,7 @@ db.once('open', () => {
 	console.log('Database Connection Established')
 })
 
-// ================== SERVER ==================
+// ====================== SERVER ============================
 
 const app = express()
 
@@ -24,8 +27,12 @@ app.use(morgan('dev'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 4000
 
 app.listen(PORT, () => {
 	console.log(`Server is running on port ${PORT}`)
 })
+
+
+app.use('/api/employee', EmployeeRoute)
+// app.use('/api/task', TaskRoute)
