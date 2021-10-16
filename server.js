@@ -2,9 +2,6 @@ const express = require('express')
 const mongoose = require('mongoose')
 const morgan = require('morgan')
 
-
-const EmployeeRoute = require('./routes/employee')
-
 // ======================= DATA BASE ========================
 
 mongoose.connect('mongodb://127.0.0.1:27017/Test_DB', { useNewUrlParser: true, useUnifiedTopology: true })
@@ -29,10 +26,15 @@ app.use(express.json())
 
 const PORT = process.env.PORT || 4000
 
+// Import Routes
+const EmployeeRoute = require('./routes/employee')
+const TaskRoute = require('./routes/tasks')
+
+
+app.use('/api/employee', EmployeeRoute)
+app.use('/api/tasks', TaskRoute)
+
 app.listen(PORT, () => {
 	console.log(`Server is running on port ${PORT}`)
 })
 
-
-app.use('/api/employee', EmployeeRoute)
-// app.use('/api/task', TaskRoute)

@@ -37,6 +37,7 @@ const show = (req, res, next) => {
 			})
 		})
 		.catch(error => {
+			console.log(error)
 			res.json({
 				message: "Couldn't find Employee or an error occurred"
 			})

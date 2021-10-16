@@ -1,7 +1,64 @@
-# Display all employees
-# GET http://localhost:4000/api/employee
+### Display all tasks
+GET http://localhost:4000/api/tasks
 
-## Create new Employee
+### Show only one task
+GET http://localhost:4000/api/tasks/show
+Content-Type: application/json
+
+{
+	"taskID": "616b11ea3da585cf1532921a"
+}
+
+### Create new task
+POST http://localhost:4000/api/tasks/add
+Content-Type: application/json
+
+{
+	"title": "Test task...",
+	"description": "the first task ever made!"
+}
+
+### Create new sub-task
+PUT http://localhost:4000/api/tasks/add
+Content-Type: application/json
+
+{
+	"title": "Test task...",
+	"description": "the first task ever made!"
+}
+
+### Update task
+PUT http://localhost:4000/api/tasks 
+Content-Type: application/json
+
+{
+	"taskID": "616b11ea3da585cf1532921a",
+	"title": "Updated task"
+}
+
+### Delete task
+DELETE http://localhost:4000/api/tasks/
+Content-Type: application/json
+
+{
+	"taskID": "616b1334b09ef8362d538437"
+}
+
+
+##################### EMPLOYEES ########################
+
+### Display all employees
+GET http://localhost:4000/api/employee
+
+### Get one employee by ID
+POST http://localhost:4000/api/employee/show
+Content-Type: application/json
+
+{
+	"employeeID": "61665d8a9d44d67e7a44dd3c"
+}
+
+### Create new Employee
 POST http://localhost:4000/api/employee/store
 Content-Type: application/json
 
@@ -13,5 +70,10 @@ Content-Type: application/json
 	"age": 24
 }
 
-# 
-# 
+### Delete employee by ID
+POST http://localhost:4000/api/employee/DELETE
+Content-Type: application/json
+
+{
+	"employeeID": "61665d8a9d44d67e7a44dd3c"
+}
